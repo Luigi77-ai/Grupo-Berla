@@ -366,3 +366,22 @@ input,textarea,select{ font-family:inherit; }
   .footer-grid{ grid-template-columns:1fr; }
   .hero{ padding-top:130px; }
 }
+
+
+/* ---------- Ajustes de scroll y menu movil ---------- */
+section[id]{ scroll-margin-top:90px; }
+.main-nav{ transition:all .4s var(--ease); }
+@media (max-width:760px){
+  .main-nav{
+    position:fixed; top:78px; left:0; right:0; bottom:0; background:#fff;
+    flex-direction:column; align-items:flex-start; gap:0; padding:20px 28px; margin:0;
+    transform:translateX(100%); opacity:0; visibility:hidden;
+    transition:transform .4s var(--ease), opacity .4s var(--ease), visibility .4s;
+  }
+  .main-nav.open{ transform:translateX(0); opacity:1; visibility:visible; }
+  .main-nav .nav-link{ width:100%; padding:16px 0; border-bottom:1px solid var(--line); font-size:17px; }
+  .main-nav .nav-cta{ margin-top:20px; }
+  .nav-toggle.active span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  .nav-toggle.active span:nth-child(2){ opacity:0; }
+  .nav-toggle.active span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+}
