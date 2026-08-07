@@ -3,7 +3,7 @@
    Consultoria, Marketing y Construccion
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Manrope:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500;1,6..72,600&display=swap');
 
 :root{
   --navy:#0b2545;
@@ -28,14 +28,14 @@
 html{ scroll-behavior:smooth; }
 body{
   margin:0;
-  font-family:'Manrope',sans-serif;
+  font-family:'Figtree',sans-serif;
   color:var(--ink);
   background:var(--white);
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
 }
 h1,h2,h3,h4{
-  font-family:'Fraunces',serif;
+  font-family:'Newsreader',serif;
   color:var(--navy);
   margin:0;
   line-height:1.15;
@@ -109,11 +109,11 @@ input,textarea,select{ font-family:inherit; }
 .logo{ display:flex; align-items:center; gap:12px; }
 .logo-mark{
   width:42px; height:42px; border-radius:12px; background:linear-gradient(135deg,var(--navy),var(--navy-2));
-  color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-weight:700; font-size:17px;
+  color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Newsreader',serif; font-weight:700; font-size:17px;
   box-shadow:0 8px 18px -6px rgba(11,37,69,.5);
 }
 .logo-mark.big{ width:74px; height:74px; font-size:26px; border-radius:20px; }
-.logo-text{ font-family:'Fraunces',serif; font-weight:600; font-size:19px; color:var(--navy); }
+.logo-text{ font-family:'Newsreader',serif; font-weight:600; font-size:19px; color:var(--navy); }
 .logo-text em{ color:var(--gold); font-style:italic; }
 .main-nav{ display:flex; align-items:center; gap:34px; margin-left:auto; margin-right:34px; }
 .nav-link{ position:relative; font-weight:600; font-size:15px; color:var(--navy); padding:4px 0; }
@@ -127,7 +127,7 @@ input,textarea,select{ font-family:inherit; }
 .nav-toggle span{ width:24px; height:2px; background:var(--navy); border-radius:2px; transition:all .3s var(--ease); }
 
 .hero{ position:relative; padding:170px 0 0; overflow:hidden; }
-.hero-bg{ position:absolute; inset:0; z-index:0; }
+.hero-bg{ position:absolute; inset:0; z-index:0; background-image:linear-gradient(180deg, rgba(11,37,69,.72), rgba(250,248,243,.95) 92%), url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=70'); background-size:cover; background-position:center; }
 .hero-grid{
   position:absolute; inset:0;
   background-image:radial-gradient(rgba(11,37,69,.09) 1.4px, transparent 1.4px);
@@ -175,7 +175,7 @@ input,textarea,select{ font-family:inherit; }
 .stats-grid{ display:grid; grid-template-columns:repeat(4,1fr); padding:40px 28px; }
 .stat{ text-align:center; padding:10px 14px; border-right:1px solid rgba(255,255,255,.12); }
 .stat:last-child{ border-right:none; }
-.stat-number{ display:block; font-family:'Fraunces',serif; font-size:clamp(30px,3vw,42px); color:var(--gold-light); font-weight:600; }
+.stat-number{ display:block; font-family:'Newsreader',serif; font-size:clamp(30px,3vw,42px); color:var(--gold-light); font-weight:600; }
 .stat-label{ display:block; margin-top:6px; font-size:13.5px; color:rgba(255,255,255,.75); letter-spacing:.02em; }
 
 /* ---------- Sobre nosotros ---------- */
@@ -187,11 +187,11 @@ input,textarea,select{ font-family:inherit; }
   transform:translate(16px,16px); z-index:0;
 }
 .about-frame-inner{
-  position:relative; z-index:1; background:var(--navy); border-radius:var(--radius-lg);
+  position:relative; z-index:1; background-image:linear-gradient(135deg, rgba(11,37,69,.88), rgba(18,58,107,.82)), url('https://images.unsplash.com/photo-1758873269317-51888e824b28?auto=format&fit=crop&w=1000&q=70'); background-size:cover; background-position:center; border-radius:var(--radius-lg);
   padding:56px 44px; color:#fff; box-shadow:var(--shadow-hard);
 }
 .quote-icon{ font-size:34px; color:var(--gold-light); }
-.about-frame-inner p{ font-family:'Fraunces',serif; font-size:26px; font-weight:500; line-height:1.5; margin-top:18px; }
+.about-frame-inner p{ font-family:'Newsreader',serif; font-size:26px; font-weight:500; line-height:1.5; margin-top:18px; }
 .about-frame-sign{ display:block; margin-top:28px; font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:rgba(255,255,255,.6); }
 .about-points{ margin-top:36px; display:flex; flex-direction:column; gap:22px; }
 .about-point{ display:flex; gap:16px; align-items:flex-start; }
@@ -212,7 +212,7 @@ input,textarea,select{ font-family:inherit; }
 }
 .division-card:hover{ transform:translateY(-10px); box-shadow:var(--shadow-hard); border-color:transparent; }
 .division-card:hover::before{ transform:scaleX(1); }
-.division-number{ position:absolute; top:20px; right:24px; font-family:'Fraunces',serif; font-size:38px; color:var(--navy-soft); font-weight:600; }
+.division-number{ position:absolute; top:20px; right:24px; font-family:'Newsreader',serif; font-size:38px; color:var(--navy-soft); font-weight:600; }
 .division-card i{ font-size:34px; color:var(--gold); }
 .division-card h3{ font-size:21px; margin-top:20px; font-weight:600; }
 .division-card p{ color:var(--muted); font-size:14.5px; line-height:1.65; margin-top:12px; min-height:66px; }
@@ -275,7 +275,7 @@ input,textarea,select{ font-family:inherit; }
 .process-step{ position:relative; z-index:1; text-align:center; padding:0 10px; }
 .process-index{
   display:inline-flex; align-items:center; justify-content:center; width:54px; height:54px; border-radius:50%;
-  background:#fff; border:2px solid var(--gold); color:var(--navy); font-family:'Fraunces',serif; font-weight:700; font-size:18px;
+  background:#fff; border:2px solid var(--gold); color:var(--navy); font-family:'Newsreader',serif; font-weight:700; font-size:18px;
   margin-bottom:22px;
 }
 .process-step h3{ font-size:19px; font-weight:600; }
@@ -295,7 +295,7 @@ input,textarea,select{ font-family:inherit; }
 .why-card p{ color:rgba(255,255,255,.65); font-size:14px; margin-top:8px; line-height:1.6; }
 
 /* ---------- CTA ---------- */
-.cta{ padding:100px 0; background:linear-gradient(120deg,var(--gold),#8f6a24); position:relative; overflow:hidden; }
+.cta{ padding:100px 0;background-image:linear-gradient(120deg, rgba(182,134,47,.93), rgba(143,106,36,.88)), url('https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=70'); background-size:cover; background-position:center; position:relative; overflow:hidden; }
 .cta-inner{ text-align:center; max-width:640px; margin:0 auto; position:relative; z-index:1; }
 .cta h2{ color:#fff; font-size:clamp(26px,3.4vw,38px); font-weight:600; }
 .cta p{ color:rgba(255,255,255,.85); margin-top:14px; font-size:16.5px; }
