@@ -1,502 +1,233 @@
-/* ==========================================================================
-   GRUPO BERLA - Interacciones y datos de servicios
-   ========================================================================== */
-(function(){
-  'use strict';
+document.addEventListener('DOMContentLoaded', function () {
 
-  var divisions = [
+  var DIVISIONS = [
     {
-      id:'consultoria',
-      icon:'bx-briefcase-alt-2',
-      name:'Consultoria Empresarial',
-      tagline:'Contabilidad, finanzas, procesos, talento humano y estrategia para negocios que buscan crecer con orden.',
-      categories:[
-        { title:'Contabilidad y Finanzas', icon:'bx-calculator', items:[
-          'Llevar libros contables',
-          'Preparar y emitir estados financieros',
-          'Analizar estados financieros',
-          'Medir indicadores de desempeno (KPIs)',
-          'Dar seguimiento a costos y gastos',
-          'Comparar gastos contra presupuestos (budget)'
-        ]},
-        { title:'Recursos Humanos', icon:'bx-group', items:[
-          'Gestion de despidos, renuncias y mutuos acuerdos',
-          'Calculo de liquidaciones',
-          'Aplicacion de medidas disciplinarias',
-          'Asesoria sobre jornadas laborales y salarios',
-          'Calculo y elaboracion de planillas',
-          'Diseno de estructura organizacional',
-          'Manuales de puestos',
-          'Politicas internas',
-          'Evaluacion de desempeno',
-          'Procesos de contratacion',
-          'Capacitacion y desarrollo'
-        ]},
-        { title:'Planeacion Estrategica', icon:'bx-compass', items:[
-          'Desarrollo de planes estrategicos',
-          'Definicion de objetivos y KPIs',
-          'Creacion de planes de crecimiento',
-          'Evaluacion de oportunidades de negocio',
-          'Desarrollo de nuevos modelos de negocio'
-        ]},
-        { title:'Consultoria Financiera', icon:'bx-line-chart', items:[
-          'Analisis financiero',
-          'Evaluacion de rentabilidad',
-          'Presupuestos y proyecciones financieras',
-          'Control de costos y gastos',
-          'Analisis de flujo de caja',
-          'Indicadores financieros (KPIs)'
-        ]},
-        { title:'Optimizacion de Procesos', icon:'bx-cog', items:[
-          'Diagnostico de procesos internos',
-          'Estandarizacion de procedimientos',
-          'Manuales de procesos',
-          'Reduccion de costos operativos',
-          'Mejora de productividad'
-        ]},
-        { title:'Gestion Empresarial', icon:'bx-briefcase', items:[
-          'Creacion de indicadores de desempeno',
-          'Desarrollo de dashboards gerenciales',
-          'Implementacion de controles internos',
-          'Gestion documental',
-          'Apoyo en toma de decisiones'
-        ]},
-        { title:'Cumplimiento Empresarial', icon:'bx-shield-quarter', items:[
-          'Revision de procesos administrativos',
-          'Asesoria en cumplimiento laboral',
-          'Documentacion corporativa',
-          'Gestion de riesgos operativos',
-          'Buenas practicas empresariales'
-        ]},
-        { title:'Transformacion Digital', icon:'bx-chip', items:[
-          'Digitalizacion de procesos',
-          'Implementacion de herramientas tecnologicas',
-          'Automatizacion empresarial',
-          'Integracion de software',
-          'Optimizacion mediante inteligencia artificial'
-        ]},
-        { title:'Desarrollo de Negocios', icon:'bx-rocket', items:[
-          'Estudios de viabilidad',
-          'Expansion de negocios',
-          'Apertura de nuevas lineas de negocio',
-          'Analisis de mercado',
-          'Estrategias para incrementar ingresos'
-        ]}
+      title: 'Contabilidad y Finanzas',
+      subtitle: 'Números con criterio',
+      desc: 'Registro impecable, estados financieros claros y lectura estratégica de los números para decidir con certeza.',
+      groups: [
+        { name: 'Contabilidad', items: ['Llevar libros contables', 'Preparar y emitir estados financieros', 'Analizar estados financieros', 'Medir indicadores de desempeño (KPIs)', 'Dar seguimiento a costos y gastos', 'Comparar gastos contra presupuestos (budget)'] },
+        { name: 'Consultoría Financiera', items: ['Análisis financiero', 'Evaluación de rentabilidad', 'Presupuestos y proyecciones financieras', 'Control de costos y gastos', 'Análisis de flujo de caja', 'Indicadores financieros (KPIs)'] },
+        { name: 'Planillas y Cumplimiento Laboral', items: ['Cálculo y elaboración de planillas', 'Cálculo de liquidaciones', 'Asesoría sobre jornadas laborales y salarios', 'Gestión de despidos, renuncias y mutuos acuerdos', 'Aplicación de medidas disciplinarias'] }
       ]
     },
     {
-      id:'marketing',
-      icon:'bx-trending-up',
-      name:'Marketing y Publicidad Digital',
-      tagline:'Estrategia de marca, pauta digital, redes sociales, contenido y comercio electronico que convierte.',
-      categories:[
-        { title:'Marketing Estrategico', icon:'bx-target-lock', items:[
-          'Desarrollo de estrategias de marketing',
-          'Consultoria de crecimiento para empresas',
-          'Posicionamiento de marca',
-          'Planes de lanzamiento de productos y servicios',
-          'Analisis de mercado y competencia'
-        ]},
-        { title:'Publicidad Digital', icon:'bx-purchase-tag', items:[
-          'Administracion de campanas en Meta Ads (Facebook e Instagram)',
-          'Google Ads (Search, Display y YouTube)',
-          'Optimizacion de campanas y presupuesto',
-          'Remarketing y generacion de leads',
-          'Reportes y analisis de resultados (KPIs y ROI)'
-        ]},
-        { title:'Redes Sociales', icon:'bx-hash', items:[
-          'Administracion de redes sociales',
-          'Calendarios de contenido',
-          'Creacion de Reels, TikToks y videos cortos',
-          'Community Management',
-          'Estrategias para aumentar alcance y engagement'
-        ]},
-        { title:'Diseno Web y Comercio Electronico', icon:'bx-code-alt', items:[
-          'Desarrollo de sitios web corporativos',
-          'Tiendas en linea con Shopify',
-          'Landing Pages para generacion de clientes',
-          'Optimizacion de velocidad y experiencia de usuario',
-          'Integracion con formularios, CRM y herramientas de pago'
-        ]},
-        { title:'Influencer Marketing', icon:'bx-microphone', items:[
-          'Gestion de campanas con influencers',
-          'Representacion de creadores de contenido',
-          'Negociacion con marcas',
-          'Organizacion de colaboraciones',
-          'Medicion del rendimiento de campanas'
-        ]},
-        { title:'Branding y Diseno', icon:'bx-palette', items:[
-          'Diseno de identidad corporativa',
-          'Creacion de logotipos',
-          'Manuales de marca',
-          'Material publicitario digital e impreso',
-          'Diseno para redes sociales'
-        ]},
-        { title:'Automatizacion e Inteligencia Artificial', icon:'bx-bot', items:[
-          'Automatizacion de procesos de marketing',
-          'Implementacion de CRM',
-          'Automatizacion de correos electronicos',
-          'Flujos de seguimiento para clientes',
-          'Integracion de herramientas de IA para optimizar ventas y atencion al cliente'
-        ]},
-        { title:'Analitica y Optimizacion', icon:'bx-bar-chart-alt-2', items:[
-          'Dashboards personalizados',
-          'Seguimiento de KPIs',
-          'Analisis de campanas',
-          'Optimizacion de conversiones',
-          'Reportes ejecutivos para toma de decisiones'
-        ]}
-      ]
+      title: 'Consultoría para Empresas',
+      subtitle: 'Estructura, procesos y crecimiento',
+      desc: 'Ordenamos la operación y diseñamos la ruta de crecimiento: estrategia, procesos, talento y control gerencial.',
+      groups: ['Planeación Estratégica', 'Optimización de Procesos', 'Recursos Humanos', 'Gestión Empresarial', 'Cumplimiento Empresarial', 'Transformación Digital', 'Desarrollo de Negocios'].map(function (n) { return { name: n, items: [] }; })
     },
     {
-      id:'construccion',
-      icon:'bx-building-house',
-      name:'Construccion y Mantenimiento',
-      tagline:'Obra, remodelacion, mantenimiento, logistica e instalaciones para espacios que funcionan.',
-      categories:[
-        { title:'Construccion', icon:'bx-building', items:[
-          'Construccion de viviendas',
-          'Remodelaciones residenciales y comerciales',
-          'Ampliaciones de edificios y oficinas',
-          'Obra gris y acabados',
-          'Instalacion de pisos y revestimientos',
-          'Pintura interior y exterior',
-          'Construccion de muros y cercas',
-          'Instalacion de techos y estructuras metalicas'
-        ]},
-        { title:'Remodelaciones y Reparaciones', icon:'bx-wrench', items:[
-          'Remodelacion de cocinas y banos',
-          'Reparacion de paredes y cielos falsos',
-          'Instalacion y reparacion de puertas y ventanas',
-          'Reparaciones de plomeria',
-          'Reparaciones electricas',
-          'Instalacion de luminarias',
-          'Soldadura y trabajos metalicos',
-          'Carpinteria y ebanisteria'
-        ]},
-        { title:'Mantenimiento General', icon:'bx-wrench', items:[
-          'Mantenimiento preventivo y correctivo',
-          'Mantenimiento de oficinas y comercios',
-          'Reparaciones menores',
-          'Limpieza post construccion',
-          'Lavado a presion',
-          'Mantenimiento de areas verdes',
-          'Pintura de mantenimiento',
-          'Inspecciones periodicas'
-        ]},
-        { title:'Transporte y Logistica', icon:'bx-car', items:[
-          'Transporte de materiales de construccion',
-          'Mudanzas residenciales y comerciales',
-          'Transporte de mobiliario y equipos',
-          'Servicios de carga y descarga',
-          'Entregas programadas',
-          'Logistica para proyectos',
-          'Transporte local y nacional'
-        ]},
-        { title:'Instalaciones Especializadas', icon:'bx-desktop', items:[
-          'Instalacion de muebles y mobiliario',
-          'Instalacion de equipos',
-          'Ensamble de oficinas',
-          'Instalacion de estanterias',
-          'Montaje de estructuras',
-          'Instalacion de accesorios comerciales'
-        ]},
-        { title:'Servicios Empresariales', icon:'bx-store', items:[
-          'Mantenimiento para oficinas',
-          'Atencion a edificios corporativos',
-          'Mantenimiento para bodegas e industrias',
-          'Contratos de mantenimiento',
-          'Gestion de proveedores',
-          'Supervision de proyectos'
-        ]}
-      ]
+      title: 'Consultoría para Gobierno',
+      subtitle: 'Fortalecimiento institucional',
+      desc: 'Acompañamos instituciones públicas en modernización, gestión por resultados, transparencia y cooperación internacional.',
+      groups: ['Fortalecimiento Institucional', 'Gestión de Proyectos', 'Planificación Estratégica', 'Consultoría Financiera y Administrativa', 'Recursos Humanos', 'Transformación Digital', 'Transparencia y Gobernanza', 'Cooperación Internacional', 'Investigación y Análisis'].map(function (n) { return { name: n, items: [] }; })
     },
     {
-      id:'gobierno',
-      icon:'bx-landmark',
-      name:'Consultoria para Gobierno',
-      tagline:'Fortalecimiento institucional, gestion de proyectos y cooperacion internacional con enfoque en resultados.',
-      categories:[
-        { title:'Fortalecimiento Institucional', icon:'bx-buildings', items:[
-          'Diagnostico organizacional',
-          'Modernizacion institucional',
-          'Diseno y mejora de procesos',
-          'Desarrollo de manuales administrativos y operativos',
-          'Reestructuracion organizacional',
-          'Gestion del cambio'
-        ]},
-        { title:'Gestion de Proyectos', icon:'bx-task', items:[
-          'Formulacion de proyectos',
-          'Planificacion y ejecucion de programas',
-          'Gestion basada en resultados',
-          'Monitoreo y evaluacion (M&E)',
-          'Administracion de cronogramas y presupuestos',
-          'Gestion de riesgos'
-        ]},
-        { title:'Planificacion Estrategica', icon:'bx-compass', items:[
-          'Elaboracion de planes estrategicos',
-          'Planes operativos institucionales (POA)',
-          'Definicion de indicadores (KPIs)',
-          'Diseno de cuadros de mando',
-          'Seguimiento al desempeno institucional'
-        ]},
-        { title:'Consultoria Financiera y Administrativa', icon:'bx-wallet', items:[
-          'Optimizacion del uso de recursos',
-          'Presupuestacion y planificacion financiera',
-          'Evaluacion de costos',
-          'Desarrollo de controles internos',
-          'Elaboracion de informes ejecutivos'
-        ]},
-        { title:'Recursos Humanos', icon:'bx-group', items:[
-          'Diseno de estructuras organizacionales',
-          'Manuales de puestos y funciones',
-          'Evaluacion del desempeno',
-          'Gestion del talento',
-          'Capacitacion institucional',
-          'Desarrollo de competencias'
-        ]},
-        { title:'Transformacion Digital', icon:'bx-chip', items:[
-          'Digitalizacion de procesos',
-          'Automatizacion de tramites',
-          'Gobierno digital',
-          'Implementacion de herramientas tecnologicas',
-          'Inteligencia artificial para procesos administrativos'
-        ]},
-        { title:'Transparencia y Gobernanza', icon:'bx-shield-alt-2', items:[
-          'Fortalecimiento de mecanismos de transparencia',
-          'Gestion documental',
-          'Desarrollo de politicas institucionales',
-          'Gestion de riesgos',
-          'Buenas practicas de gobernanza'
-        ]},
-        { title:'Cooperacion Internacional', icon:'bx-globe', items:[
-          'Formulacion de propuestas para organismos cooperantes',
-          'Gestion de proyectos financiados por donantes',
-          'Elaboracion de informes tecnicos',
-          'Coordinacion con organismos internacionales',
-          'Monitoreo y evaluacion de proyectos de cooperacion'
-        ]},
-        { title:'Investigacion y Analisis', icon:'bx-search-alt', items:[
-          'Estudios socioeconomicos',
-          'Diagnosticos sectoriales',
-          'Evaluaciones de impacto',
-          'Investigacion de politicas publicas',
-          'Recoleccion y analisis de datos',
-          'Elaboracion de informes tecnicos'
-        ]}
-      ]
+      title: 'Marketing y Digital',
+      subtitle: 'Marca, demanda y automatización',
+      desc: 'Posicionamiento, publicidad medible y sistemas digitales que convierten atención en ingresos.',
+      groups: ['Marketing Estratégico', 'Publicidad Digital', 'Redes Sociales', 'Diseño Web y Comercio Electrónico', 'Influencer Marketing', 'Branding y Diseño', 'Automatización e Inteligencia Artificial', 'Analítica y Optimización'].map(function (n) { return { name: n, items: [] }; })
+    },
+    {
+      title: 'Construcción y Mantenimiento',
+      subtitle: 'Obra, remodelación y logística',
+      desc: 'Ejecución en sitio con supervisión profesional: construcción, remodelación, mantenimiento y transporte.',
+      groups: ['Construcción', 'Remodelaciones y Reparaciones', 'Mantenimiento General', 'Transporte y Logística', 'Instalaciones Especializadas', 'Servicios Empresariales'].map(function (n) { return { name: n, items: [] }; })
     }
   ];
 
-  function renderServices(){
-    var nav = document.getElementById('tabsNav');
-    var panels = document.getElementById('tabsPanels');
-    if(!nav || !panels) return;
-    nav.innerHTML = '';
-    panels.innerHTML = '';
+  var selected = {};
 
-    divisions.forEach(function(div, index){
-      var btn = document.createElement('button');
-      btn.className = 'tab-btn' + (index === 0 ? ' active' : '');
-      btn.type = 'button';
-      btn.dataset.tab = div.id;
-      btn.innerHTML = '<i class="bx ' + div.icon + '"></i> ' + div.name;
-      nav.appendChild(btn);
+  function pad2(n) { return n < 10 ? '0' + n : '' + n; }
 
-      var panel = document.createElement('div');
-      panel.className = 'tab-panel' + (index === 0 ? ' active' : '');
-      panel.id = 'panel-' + div.id;
+  var serviceGrid = document.getElementById('serviceGrid');
+  var detailPanel = document.getElementById('serviceDetailPanel');
 
-      var head = document.createElement('div');
-      head.className = 'tab-panel-head';
-      head.innerHTML = '<h3>' + div.name + '</h3><p>' + div.tagline + '</p>';
-      panel.appendChild(head);
-
-      var grid = document.createElement('div');
-      grid.className = 'accordion-grid';
-
-      div.categories.forEach(function(cat){
-        var item = document.createElement('div');
-        item.className = 'accordion-item';
-
-        var header = document.createElement('button');
-        header.type = 'button';
-        header.className = 'accordion-header';
-        header.innerHTML =
-          '<span class="accordion-icon"><i class="bx ' + cat.icon + '"></i></span>' +
-          '<span class="accordion-title">' + cat.title + '</span>' +
-          '<i class="bx bx-chevron-down accordion-chevron"></i>';
-
-        var body = document.createElement('div');
-        body.className = 'accordion-body';
-        var bodyInner = document.createElement('div');
-        bodyInner.className = 'accordion-body-inner';
-        var ul = document.createElement('ul');
-        cat.items.forEach(function(txt){
-          var li = document.createElement('li');
-          li.textContent = txt;
-          ul.appendChild(li);
-        });
-        bodyInner.appendChild(ul);
-        body.appendChild(bodyInner);
-
-        header.addEventListener('click', function(){
-          var isOpen = item.classList.contains('open');
-          item.classList.toggle('open', !isOpen);
-          body.style.maxHeight = isOpen ? 0 : (body.scrollHeight + 'px');
-        });
-
-        item.appendChild(header);
-        item.appendChild(body);
-        grid.appendChild(item);
-      });
-
-      panel.appendChild(grid);
-      panels.appendChild(panel);
+  function renderDetail(divIndex) {
+    var div = DIVISIONS[divIndex];
+    var html = '<div class="detail-header"><span class="detail-badge">División ' + pad2(divIndex + 1) + '</span><h3>' + div.title + '</h3></div>';
+    html += '<p class="detail-desc">' + div.desc + '</p>';
+    div.groups.forEach(function (g, i) {
+      var open = i === 0 ? ' open' : '';
+      html += '<div class="accordion-item' + open + '" data-index="' + i + '">';
+      html += '<button type="button" class="accordion-head"><span class="accordion-num">' + pad2(i + 1) + '</span><span class="accordion-title">' + g.name + '</span><span class="accordion-toggle">+</span></button>';
+      html += '<div class="accordion-body">';
+      if (g.items.length) {
+        html += '<ul class="accordion-list">';
+        g.items.forEach(function (it) { html += '<li>' + it + '</li>'; });
+        html += '</ul>';
+      } else {
+        html += '<ul class="accordion-list"><li>Línea de servicio incluida dentro del alcance de esta división. Escríbanos para conocer el detalle.</li></ul>';
+      }
+      html += '</div></div>';
     });
-  }
+    detailPanel.innerHTML = html;
 
-  function activateTab(id){
-    document.querySelectorAll('.tab-btn').forEach(function(b){
-      b.classList.toggle('active', b.dataset.tab === id);
-    });
-    document.querySelectorAll('.tab-panel').forEach(function(p){
-      p.classList.toggle('active', p.id === 'panel-' + id);
-    });
-  }
-
-  function setupTabs(){
-    var nav = document.getElementById('tabsNav');
-    if(!nav) return;
-    nav.addEventListener('click', function(e){
-      var btn = e.target.closest('.tab-btn');
-      if(!btn) return;
-      activateTab(btn.dataset.tab);
-    });
-  }
-
-  function setupDivisionLinks(){
-    document.querySelectorAll('[data-target]').forEach(function(card){
-      card.addEventListener('click', function(){
-        var target = card.getAttribute('data-target');
-        activateTab(target);
-        var servicesSection = document.getElementById('servicios');
-        if(servicesSection){ servicesSection.scrollIntoView({behavior:'smooth'}); }
-      });
-    });
-    document.querySelectorAll('[data-tablink]').forEach(function(link){
-      link.addEventListener('click', function(){
-        activateTab(link.getAttribute('data-tablink'));
+    detailPanel.querySelectorAll('.accordion-item').forEach(function (item) {
+      item.querySelector('.accordion-head').addEventListener('click', function () {
+        item.classList.toggle('open');
       });
     });
   }
 
-  function setupHeaderScroll(){
-    var header = document.getElementById('siteHeader');
-    if(!header) return;
-    function onScroll(){ header.classList.toggle('scrolled', window.scrollY > 30); }
-    window.addEventListener('scroll', onScroll, { passive:true });
-    onScroll();
+  if (serviceGrid) {
+    serviceGrid.querySelectorAll('.service-card').forEach(function (card) {
+      card.addEventListener('click', function () {
+        serviceGrid.querySelectorAll('.service-card').forEach(function (c) { c.classList.remove('is-active'); });
+        card.classList.add('is-active');
+        renderDetail(parseInt(card.getAttribute('data-division'), 10));
+      });
+    });
+    renderDetail(0);
   }
 
-  function setupNav(){
-    var toggle = document.getElementById('navToggle');
-    var nav = document.getElementById('mainNav');
-    if(!toggle || !nav) return;
-    toggle.addEventListener('click', function(){
-      nav.classList.toggle('open');
-      toggle.classList.toggle('active');
+  var configWrap = document.getElementById('configuratorDivisions');
+  var countLines = document.getElementById('countLines');
+  var countDivisions = document.getElementById('countDivisions');
+  var summaryList = document.getElementById('summaryList');
+  var summaryCta = document.getElementById('summaryCta');
+
+  if (configWrap) {
+    var html2 = '';
+    DIVISIONS.forEach(function (div, di) {
+      html2 += '<div class="division-block"><div class="division-head"><span>' + pad2(di + 1) + '</span><h3>' + div.title + '</h3></div><div class="tag-list">';
+      div.groups.forEach(function (g) {
+        html2 += '<button type="button" class="tag" data-division="' + di + '" data-name="' + g.name.replace(/"/g, '&quot;') + '">' + g.name + '</button>';
+      });
+      html2 += '</div></div>';
     });
-    nav.querySelectorAll('a').forEach(function(a){
-      a.addEventListener('click', function(){ nav.classList.remove('open'); toggle.classList.remove('active'); });
+    configWrap.innerHTML = html2;
+
+    configWrap.querySelectorAll('.tag').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var key = btn.getAttribute('data-division') + '|' + btn.getAttribute('data-name');
+        if (selected[key]) { delete selected[key]; btn.classList.remove('is-selected'); }
+        else { selected[key] = true; btn.classList.add('is-selected'); }
+        updateSummary();
+      });
     });
   }
 
-  function setupReveal(){
-    var items = document.querySelectorAll('[data-reveal]');
-    if(!items.length) return;
-    var observer = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        if(entry.isIntersecting){
+  function updateSummary() {
+    var keys = Object.keys(selected);
+    var divSet = {};
+    keys.forEach(function (k) { divSet[k.split('|')[0]] = true; });
+    if (countLines) countLines.textContent = pad2(keys.length);
+    if (countDivisions) countDivisions.textContent = pad2(Object.keys(divSet).length);
+
+    if (summaryList) {
+      if (!keys.length) {
+        summaryList.innerHTML = '<li class="summary-empty">Aún no ha seleccionado líneas. Elija las que le interesen y aparecerán aquí.</li>';
+      } else {
+        summaryList.innerHTML = keys.map(function (k) {
+          var parts = k.split('|');
+          var divTitle = DIVISIONS[parseInt(parts[0], 10)].title;
+          return '<li class="summary-item">' + parts[1] + ' <span style="color:var(--muted);font-size:.78rem;">' + divTitle + '</span></li>';
+        }).join('');
+      }
+    }
+
+    if (summaryCta) {
+      var subject = 'Solicitud de propuesta - Grupo Berla';
+      var bodyLines = ['Hola Grupo Berla, me gustaría recibir una propuesta para las siguientes líneas:', ''];
+      keys.forEach(function (k) {
+        var parts = k.split('|');
+        bodyLines.push('- ' + parts[1] + ' (' + DIVISIONS[parseInt(parts[0], 10)].title + ')');
+      });
+      if (!keys.length) { bodyLines = ['Hola Grupo Berla, me gustaría recibir una propuesta.']; }
+      var mailto = 'mailto:contacto@grupoberla.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(bodyLines.join('\n'));
+      summaryCta.setAttribute('href', mailto);
+    }
+  }
+
+  updateSummary();
+
+  var revealEls = document.querySelectorAll('[data-reveal]');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
+          io.unobserve(entry.target);
         }
       });
-    }, { threshold:0.15 });
-    items.forEach(function(el){ observer.observe(el); });
+    }, { threshold: 0.15 });
+    revealEls.forEach(function (el) { io.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('is-visible'); });
   }
 
-  function animateCount(el){
+  var statNumbers = document.querySelectorAll('.stat-number');
+  function animateCount(el) {
     var target = parseInt(el.getAttribute('data-count'), 10) || 0;
     var suffix = el.getAttribute('data-suffix') || '';
-    var duration = 1600;
-    var start = null;
-    function step(ts){
-      if(start === null) start = ts;
-      var progress = Math.min((ts - start) / duration, 1);
-      var eased = 1 - Math.pow(1 - progress, 3);
-      el.textContent = Math.floor(eased * target) + suffix;
-      if(progress < 1){ requestAnimationFrame(step); }
-      else { el.textContent = target + suffix; }
+    var duration = 900;
+    var startTime = null;
+    function step(ts) {
+      if (!startTime) startTime = ts;
+      var progress = Math.min((ts - startTime) / duration, 1);
+      el.textContent = Math.floor(progress * target) + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+      else el.textContent = target + suffix;
     }
     requestAnimationFrame(step);
   }
-
-  function setupCounters(){
-    var stats = document.querySelectorAll('.stat-number');
-    if(!stats.length) return;
-    var done = false;
-    var observer = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        if(entry.isIntersecting && !done){
-          done = true;
-          stats.forEach(animateCount);
-          observer.disconnect();
+  if ('IntersectionObserver' in window) {
+    var statIo = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          animateCount(entry.target);
+          statIo.unobserve(entry.target);
         }
       });
-    }, { threshold:0.4 });
-    stats.forEach(function(el){ observer.observe(el); });
+    }, { threshold: 0.4 });
+    statNumbers.forEach(function (el) { statIo.observe(el); });
+  } else {
+    statNumbers.forEach(animateCount);
   }
 
-  function setupProgressAndCursor(){
-    var bar = document.getElementById('progressBar');
-    var glow = document.getElementById('cursorGlow');
-    function onScroll(){
-      if(!bar) return;
-      var h = document.documentElement;
-      var scrollTop = h.scrollTop || document.body.scrollTop;
-      var height = h.scrollHeight - h.clientHeight;
-      var pct = height > 0 ? (scrollTop / height) * 100 : 0;
-      bar.style.width = pct + '%';
-    }
-    window.addEventListener('scroll', onScroll, { passive:true });
-    onScroll();
-    if(glow){
-      window.addEventListener('mousemove', function(e){
-        glow.style.transform = 'translate(' + e.clientX + 'px,' + e.clientY + 'px)';
-      });
+  var header = document.getElementById('siteHeader');
+  var progressBar = document.getElementById('progressBar');
+  function onScroll() {
+    if (header) { header.classList.toggle('scrolled', window.scrollY > 10); }
+    if (progressBar) {
+      var doc = document.documentElement;
+      var pct = (window.scrollY / (doc.scrollHeight - doc.clientHeight)) * 100;
+      progressBar.style.width = (isFinite(pct) ? pct : 0) + '%';
     }
   }
+  window.addEventListener('scroll', onScroll);
+  onScroll();
 
-  function setupBackToTop(){
-    var btn = document.getElementById('backToTop');
-    if(!btn) return;
-    window.addEventListener('scroll', function(){
-      btn.classList.toggle('show', window.scrollY > 500);
-    }, { passive:true });
+  var navToggle = document.getElementById('navToggle');
+  var mainNav = document.getElementById('mainNav');
+  if (navToggle && mainNav) {
+    navToggle.addEventListener('click', function () {
+      mainNav.classList.toggle('open');
+    });
+    mainNav.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () { mainNav.classList.remove('open'); });
+    });
   }
 
-  document.addEventListener('DOMContentLoaded', function(){
-    renderServices();
-    setupTabs();
-    setupDivisionLinks();
-    setupHeaderScroll();
-    setupNav();
-    setupReveal();
-    setupCounters();
-    setupProgressAndCursor();
-    setupBackToTop();
-    var yearEl = document.getElementById('year');
-    if(yearEl){ yearEl.textContent = new Date().getFullYear(); }
-  });
-})();
+  var contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var data = new FormData(contactForm);
+      var subject = 'Solicitud de contacto - ' + (data.get('nombre') || '');
+      var lines = [
+        'Nombre: ' + (data.get('nombre') || ''),
+        'Empresa: ' + (data.get('empresa') || ''),
+        'Correo: ' + (data.get('correo') || ''),
+        'Teléfono: ' + (data.get('telefono') || ''),
+        'División de interés: ' + (data.get('division') || ''),
+        '',
+        (data.get('mensaje') || '')
+      ];
+      window.location.href = 'mailto:contacto@grupoberla.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(lines.join('\n'));
+    });
+  }
+
+});
